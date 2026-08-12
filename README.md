@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aura Apparel 🛍️
 
-## Getting Started
+A modern, high-performance e-commerce storefront and administration dashboard built with **Next.js 16 (App Router)**, **React 19**, **Tailwind CSS v4**, and **GSAP** animations.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🌟 Key Features
+
+### 🛒 Storefront
+* **Dynamic Home & Collection Showcase**: Featured collections, best-selling apparel, and interactive hero sections driven by smooth GSAP animations.
+* **Product Catalog & Filtering**: Browse products by collection with live client & server-side filtering, search integration, and pagination.
+* **Interactive Product Details**: Multi-angle image galleries, variant picker (sizes, colors, stock), and real-time inventory updates.
+* **Seamless Cart Experience**: Slide-over shopping cart with instant quantity adjustments, price calculation, and local storage state sync.
+* **Checkout Workflow**: Streamlined multi-step checkout form with dynamic validation and order placement.
+* **Brand Story & Contact Pages**: Dedicated landing sections for brand storytelling (`/ourstory`) and customer inquiries (`/contactus`).
+
+### ⚙️ Admin Dashboard
+* **Secure Admin Portal**: Dedicated admin layout with authentication (`/admin/signin`).
+* **Product Management**: Full CRUD interface for products, variants, price tracking, and media uploads.
+* **Media Uploader**: Integrated image upload workflows powered by **Uploadcare**.
+* **Order Management**: Monitor customer orders, track fulfillment status, and handle deletion or status updates (`/admin/orders`).
+
+---
+
+## 🛠️ Tech Stack
+
+* **Framework**: [Next.js 16 (App Router)](https://nextjs.org/) & [React 19](https://react.dev/)
+* **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+* **Animations**: [GSAP](https://gsap.com/) (`gsap` & `@gsap/react`)
+* **Forms & Validation**: [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/)
+* **Media Uploads**: [Uploadcare](https://uploadcare.com/) (`@uploadcare/react-uploader`)
+* **Notifications**: [Sonner](https://sonner.emilkowal.si/)
+* **Language**: [TypeScript](https://www.typescriptlang.org/)
+* **Package Manager**: [pnpm](https://pnpm.io/)
+
+---
+
+## 📁 Directory Structure
+
+```text
+aura_frontend/
+├── app/
+│   ├── (adminLayout)/       # Admin dashboard & login routes (/admin, /admin/orders, /admin/products)
+│   ├── (checkoutLayout)/    # Checkout workflow routes (/checkout)
+│   ├── (sharedLayout)/      # Main storefront pages (/collections, /ourstory, /contactus, etc.)
+│   ├── action.ts            # Next.js Server Actions for cart, products, orders & admin logic
+│   ├── globals.css          # Global styles & Tailwind v4 setup
+│   └── layout.tsx           # Root layout component
+├── components/
+│   ├── app/                 # Domain-specific UI components (Cart, Forms, Filters, Admin UI, etc.)
+│   ├── buttons/             # Reusable button elements
+│   ├── input/               # Custom form inputs
+│   └── svg/                 # SVG icon assets
+├── lib/
+│   ├── cache-tags.ts        # Next.js revalidation tag constants
+│   ├── revalidate.ts        # Server revalidation utilities
+│   ├── schemas.ts           # Zod validation schemas (products, orders, addresses)
+│   └── utils.ts             # Utility functions
+└── public/                  # Static assets & images
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Prerequisites
 
-## Learn More
+Ensure you have the following installed on your machine:
+* [Node.js](https://nodejs.org/) (v18.17 or higher recommended)
+* [pnpm](https://pnpm.io/) (v8 or higher)
 
-To learn more about Next.js, take a look at the following resources:
+### 1. Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Clone the repository and install dependencies using `pnpm`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+git clone <repository-url>
+cd aura_frontend
+pnpm install
+```
 
-## Deploy on Vercel
+### 2. Environment Setup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Create a `.env` file in the root directory and configure the required environment variables:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```env
+NEXT_PUBLIC_BACKEND_URL=https://your-backend-api.com/
+NEXT_PUBLIC_UPLOADCARE_PUBLIC_KEY=your_uploadcare_public_key
+UPLOADCARE_SECRET_KEY=your_uploadcare_secret_key
+```
+
+### 3. Running Development Server
+
+Launch the development server:
+
+```bash
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to view the application.
+
+---
+
+## 📜 Available Scripts
+
+In the project directory, you can run:
+
+| Command | Description |
+| :--- | :--- |
+| `pnpm dev` | Starts the development server with Hot Module Replacement |
+| `pnpm build` | Compiles and optimizes the app for production |
+| `pnpm start` | Runs the production build server |
+| `pnpm lint` | Runs ESLint to check for code formatting and syntax errors |
+
+---
+
+## 📄 License
+
+This project is private. All rights reserved.
