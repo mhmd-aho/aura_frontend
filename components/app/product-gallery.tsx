@@ -79,7 +79,7 @@ export default function ProductGallery({ images, alt }: Props) {
     return (
         <div className="flex flex-col lg:flex-row relative w-full h-fit lg:w-fit lg:gap-4 gap-2">
             {/* Desktop Side Thumbnails */}
-            <div className="flex-col gap-3 hidden lg:flex shrink-0">
+            <div className="flex-col gap-3 hidden lg:flex shrink-0 overflow-y-auto h-137.5">
                 {images.length > 0 ? (
                     images.map((img, i) => (
                         <button
@@ -110,7 +110,7 @@ export default function ProductGallery({ images, alt }: Props) {
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
-                className="relative w-full h-[65vh] min-h-[450px] max-h-[600px] sm:max-w-md md:max-w-lg lg:w-[430px] lg:h-[550px] overflow-hidden bg-neutral-100 rounded-lg mx-auto lg:mx-0 touch-pan-y"
+                className="relative w-full h-[65vh] min-h-112.5 max-h-150 sm:max-w-md md:max-w-lg lg:w-107.5 lg:h-137.5 overflow-hidden bg-neutral-100 rounded-lg mx-auto lg:mx-0 touch-pan-y"
             >
                 {activeImage ? (
                     <img
