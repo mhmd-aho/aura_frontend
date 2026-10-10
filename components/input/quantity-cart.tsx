@@ -52,7 +52,9 @@ export default function QuantityCart({ id, quantity }: { id: number, quantity: n
                 onClick={() => handleUpdateCartItemQuantity('increase')} 
                 className="flex items-center justify-center p-1 hover:bg-black/10 active:scale-90 rounded transition-all"
                 aria-label="Increase quantity"
+                disabled={quantity === optimisticQuantity}
             >
+
                 <Plus fill="white" />
             </button>
         </div>
